@@ -7,15 +7,41 @@
 //
 
 #import "AppDelegate.h"
+#import "MainViewController.h"
 
 @implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+@synthesize window = _window;
+-(void)initWindow{
+//    [self.window setAutoresizesSubviews:NO];
+//    [self.window setAutoresizingMask:UIViewAutoresizingNone];
+    
+    //self.window.rootViewController = viewController;
+    //self.window.rootViewController = selectionController;
+    
+    
+    //UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    //UIViewController* initialHelpView = [storyBoard instantiateInitialViewController];
+    //initialHelpView.modalPresentationStyle = UIModalPresentationFormSheet;
+    //vc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    //[vc presentViewController:vc animated:YES completion:NULL];
+    //self.window.rootViewController = initialHelpView;
     [self.window makeKeyAndVisible];
+    
+}
+
+- (MainWindow*) window {
+    //static MainWindow *customWindow = nil;
+    if (!_window) _window = [[MainWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    return _window;
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    // Override point for customization after application launch.
+//    self.window.backgroundColor = [UIColor whiteColor];
+//    [self.window makeKeyAndVisible];
+
+    [self initWindow];
     return YES;
 }
 
